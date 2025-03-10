@@ -8,6 +8,9 @@ const today = dayjs();
 const deliveryDate = today.add(7 , 'days'); //paramter = no of time to add , length of add
 console.log(deliveryDate.format('dddd,MMMM D')); // dddd = day of week and same for rest
 
+function renderOrderSummary(){
+
+
 let cartSummaryHTML='';
 
 
@@ -135,5 +138,10 @@ document.querySelectorAll('.js-delivery-option')
     element.addEventListener('click', ()=>{
       const {productId,deliveryOptionId} = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
+      renderOrderSummary();
     });
   });
+
+}
+
+renderOrderSummary();
