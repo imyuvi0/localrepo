@@ -1,14 +1,14 @@
 class Cart{
   cartItems;
-  localStorageKey;
+  #localStorageKey;  //# means private property
   
   constructor(localStorageKey){
     this.localStorageKey = localStorageKey;
-    this.loadFromStorage();
+    this.#loadFromStorage();
     
   };  
 
-  loadFromStorage() {
+  #loadFromStorage() {
     const storedCart = localStorage.getItem(this.localStorageKey);
     this.cartItems = storedCart ? JSON.parse(storedCart) : [];
 
@@ -71,6 +71,8 @@ class Cart{
 
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
+
+
 
 console.log(cart);
 console.log(businessCart);
